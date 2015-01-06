@@ -1,0 +1,38 @@
+<html>
+<link rel="stylesheet" type="text/css" href="interface.css" />
+<head><span class="maintext">
+Number of Cookies: <span id="cookies"></span><br/>
+Current Cookies Baked Per Second: <span id="cps"></span>
+</head>
+<br/>
+<br/>
+<body onload="load()">
+
+<button name="cookie_bake" 	onClick="cookieClick(1)">Bake a cookie (+1 Cookie)</button><br/>
+
+</br><table class="dps">
+<tr>
+<td><button name="children" onClick="buyChildren()">Adopt a child (+1 CPS)</button><br/></td>
+<td><button name="grandmas" onClick="buyGrandmas()">Recruit a grandma(+5 CPS)</button><br/>
+</tr>
+
+<tr>
+<td>Children: <span id="children"></span><br/></td>
+<td>Grandmas: <span id="grandmas"></span></br></td>
+</tr>
+
+<tr>
+<td>Next Cost: <span id="childrenCost"></span></td>
+<td>Next Cost: <span id="grandmasCost"></span></td>
+</tr>
+</table>
+<br/><br/><br/>
+<button name="save" onClick="save()">Save Game</button></br>
+<button name="load" onClick="load()">Load Game</button></br>
+<button name="reset" onClick="reset()">Reset Game</button></br>
+
+
+</span>
+</body>
+<script type="text/javascript" src="main.js"></script>
+</html>
