@@ -3,12 +3,15 @@ var children = 0;
 var childrenCost = 10;
 var grandmas = 0;
 var grandmasCost = 100;
-var cps = children;
+var cps = children + (5 * grandmas);
 
 function cookieClick(number) {
 	cookies = cookies + number;
 	updateResources();
 };
+
+	
+	
 
 function buyChildren() {
 	var childrenCost = Math.floor(10 * Math.pow(1.1,children));
