@@ -6,6 +6,10 @@ body {
 	text-align: center;
 }
 
+table {
+	border: 2px solid #ffffff;
+}
+
 .box {
 	border: 2px solid #000000;
 	padding: 10px;
@@ -23,9 +27,20 @@ button {
 }
 	
 .dps {
-	padding: 10px;
+	padding: 2px;
+	border-spacing: 5px;
+	border-collapse: separate;
 	font-weight: bold;
 	font-family: Verdana;
 	font-size: 13px;
 	text-align: center;
+	border:  2px solid #ffffff;
+	border-left: 2px solid #fff; 
+	margin: 2px;
+}
+
+.titlebar {
+	text-decoration:underline;
+	font-size: 17px;
+	font-family: Tahoma;
 }

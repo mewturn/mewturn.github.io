@@ -8,24 +8,45 @@ Cookies per second: <span id="cps"></span>
 <br/>
 <body onload="load()">
 
-<button name="cookie_bake" 	onClick="cookieClick(1)">Bake a cookie (+1 Cookie)</button><br/>
+<button name="cookie_bake" 	onClick="cookieClick(1)">Bake a cookie (+1 Cookie)</button><br/></br>
 
-</br><table class="dps">
+<table class="dps">
+<tr><th colspan="99"><span class="titlebar">Resources</span></th></tr>
+<tr></tr>
+
 <tr>
-<td><button name="children" onClick="buyChildren()">Adopt a child (+1 CPS)</button><br/></td>
-<td><button name="grandmas" onClick="buyGrandmas()">Recruit a grandma(+5 CPS)</button><br/>
+<td><button name="children" onClick="buyChildren()">Adopt a child</button><br/></td>
+<td></td>
+<td><button name="grandmas" onClick="buyGrandmas()">Recruit a grandma</button><br/>
+<td></td>
+<td><button name="bakerys" onClick="buyBakerys()">Open a bakery</button><br/>
 </tr>
 
 <tr>
 <td>Children: <span id="children"></span><br/></td>
+<td></td>
 <td>Grandmas: <span id="grandmas"></span></br></td>
+<td></td>
+<td>Bakerys: <span id="bakerys"></span></br></td>
 </tr>
 
 <tr>
+<td>Cookie Per Second: <span id="childrenCps"></span><br/></td>
+<td></td>
+<td>Cookie Per Second: <span id="grandmasCps"></span><br/></td>
+<td></td>
+<td>Cookie Per Second: <span id="bakerysCps"></span><br/></td>
+
+<tr>
 <td>Next Cost: <span id="childrenCost"></span></td>
+<td></td>
 <td>Next Cost: <span id="grandmasCost"></span></td>
+<td></td>
+<td>Next Cost: <span id="bakerysCost"></span></td>
 </tr>
+
 </table>
+
 <br/><br/><br/>
 <button name="save" onClick="save()">Save Game</button></br>
 <button name="load" onClick="load()">Load Game</button></br>
