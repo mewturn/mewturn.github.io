@@ -3,13 +3,13 @@ var children = 0;
 var childrenCps = 1;
 
 var grandmas = 0;
-var grandmasCps = 5;
+var grandmasCps = 20;
 
 var bakerys = 0;
-var bakerysCps = 30;
+var bakerysCps = 300;
 
 var factories = 0;
-var factoriesCps = 1000;
+var factoriesCps = 4000;
 
 function cookieClick(number) {
 	cookies = cookies + number;
@@ -86,11 +86,11 @@ function reload() {
 function updateCosts() {
 	childrenCost = Math.floor(10 * Math.pow(1.1, children));
 	document.getElementById("childrenCost").innerHTML = formatNumber(childrenCost);
-	grandmasCost = Math.floor(100 * Math.pow(1.2,grandmas));
+	grandmasCost = Math.floor(100 * Math.pow(1.15,grandmas));
 	document.getElementById("grandmasCost").innerHTML = formatNumber(grandmasCost);
-	bakerysCost = Math.floor(500 * Math.pow(1.3,bakerys));
+	bakerysCost = Math.floor(500 * Math.pow(1.2,bakerys));
 	document.getElementById("bakerysCost").innerHTML = formatNumber(bakerysCost);
-	factoriesCost = Math.floor (50000 * Math.pow(1.4,factories));
+	factoriesCost = Math.floor (50000 * Math.pow(1.3,factories));
 	document.getElementById("factoriesCost").innerHTML = formatNumber(factoriesCost);
 };
 
@@ -120,8 +120,8 @@ function formatNumber (num) {
 
 window.setInterval(function() {
 	cookieClick(children);
-	cookieClick(5 * grandmas);
-	cookieClick(30 * bakerys);
-	cookieClick(1000 * factories);
+	cookieClick(20 * grandmas);
+	cookieClick(300 * bakerys);
+	cookieClick(4000 * factories);
 	save();
 }, 1000);
