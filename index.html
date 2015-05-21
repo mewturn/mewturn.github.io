@@ -2,59 +2,30 @@
 <link rel="stylesheet" type="text/css" href="interface.css" />
 <head><span class="maintext">
 Number of Cookies: <span id="cookies"></span><br/>
-Cookies per second: <span id="cps"></span>
+Current Cookies Baked Per Second: <span id="cps"></span>
 </head>
 <br/>
 <br/>
 <body onload="load()">
 
-<button name="cookie_bake" 	onClick="cookieClick(1)">Bake a cookie (+1 Cookie)</button><br/></br>
+<button name="cookie_bake" 	onClick="cookieClick(1)">Bake a cookie (+1 Cookie)</button><br/>
 
-<table class="dps">
-<tr><th colspan="99"><span class="titlebar">Resources</span></th></tr>
-<tr></tr>
-
+</br><table class="dps">
 <tr>
-<td><button name="children" onClick="buyChildren()">Adopt a child</button><br/></td>
-<td></td>
-<td><button name="grandmas" onClick="buyGrandmas()">Recruit a grandma</button><br/>
-<td></td>
-<td><button name="bakerys" onClick="buyBakerys()">Open a bakery</button><br/>
-<td></td>
-<td><button name="factories" onClick="buyFactories()">Set up a factory</button><br/>
+<td><button name="children" onClick="buyChildren()">Adopt a child (+1 CPS)</button><br/></td>
+<td><button name="grandmas" onClick="buyGrandmas()">Recruit a grandma(+5 CPS)</button><br/>
 </tr>
 
 <tr>
 <td>Children: <span id="children"></span><br/></td>
-<td></td>
 <td>Grandmas: <span id="grandmas"></span></br></td>
-<td></td>
-<td>Bakerys: <span id="bakerys"></span></br></td>
-<td></td>
-<td>Factories: <span id="factories"></span></br></td>
 </tr>
-
-<tr>
-<td>Cookies Per Second: <span id="childrenCps"></span><br/></td>
-<td></td>
-<td>Cookies Per Second: <span id="grandmasCps"></span><br/></td>
-<td></td>
-<td>Cookies Per Second: <span id="bakerysCps"></span><br/></td>
-<td></td>
-<td>Cookies Per Second: <span id="factoriesCps"></span><br/></td>
 
 <tr>
 <td>Next Cost: <span id="childrenCost"></span></td>
-<td></td>
 <td>Next Cost: <span id="grandmasCost"></span></td>
-<td></td>
-<td>Next Cost: <span id="bakerysCost"></span></td>
-<td></td>
-<td>Next Cost: <span id="factoriesCost"></span></td>
 </tr>
-
 </table>
-
 <br/><br/><br/>
 <button name="save" onClick="save()">Save Game</button></br>
 <button name="load" onClick="load()">Load Game</button></br>
@@ -64,16 +35,4 @@ Cookies per second: <span id="cps"></span>
 </span>
 </body>
 <script type="text/javascript" src="main.js"></script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-36931888-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </html>
