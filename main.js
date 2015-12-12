@@ -1,35 +1,42 @@
+// Item variables
 var cookies = 0;
+var tcookies = 0;
+
 var children = 0;
-var childrenCost = 10;
+var childrenCost = Math.floor(10 * Math.pow(1.1,children));
 var childrenCps = 1;
 
 var grandmas = 0;
-var grandmasCost = 100;
+var grandmasCost = Math.floor(100 * Math.pow(1.2,grandmas));
 var grandmasCps = 5;
 
 var factories = 0;
-var factoriesCost = 1000;
+var factoriesCost = Math.floor(1000 * Math.pow(1.35,factories));
 var factoriesCps = 20;
 
 var cps = 0;
 
+// High scores
+var bestCookies = 0;
+var bestCps = 0;
+
+
+
 function cookieClick(number) {
-	cookies = cookies + number;
+	cookies += number;
+	tcookies += number;
 	updateResources();
 };
 
 function buyChildren() {
-	var childrenCost = Math.floor(10 * Math.pow(1.1,children));
 	if (cookies >= childrenCost) {
 		children = children + 1;
 		cookies = cookies - childrenCost;
-		cps = cps + childrenCps
 		reload();
 	};
 };
 
 function buyGrandmas() {
-	var grandmasCost = Math.floor(100 * Math.pow(1.2,grandmas));
 	if (cookies >= grandmasCost) {
 		grandmas = grandmas + 1;
 		cookies = cookies - grandmasCost;
@@ -38,8 +45,7 @@ function buyGrandmas() {
 };
 
 function buyFactories() {
-	var factoriesCost = Math.floor(1000 * Math.pow(1.35,factories));
-	if (factories >= factoriesCost) {
+	if (cookies >= factoriesCost) {
 		factories = factories + 1;
 		cookies = cookies - factoriesCost;
 		reload();
@@ -49,6 +55,7 @@ function buyFactories() {
 function save() {
 	var save = {
 		cookies: cookies,
+		tcookies: tcookies,
 		cps: cps,
 		children: children,
 		childrenCost: childrenCost,
@@ -63,15 +70,30 @@ function save() {
 };
 
 function load() {
-	var savegame = JSON.parse(localStorage.getItem("save")); 		
+	updateSavefile();
+	reload();
+};
+
+function updateSavefile() {	
+	// Savefiles 
+	var highscore = JSON.parse(localStorage.getItem("highscore")); // Highscore Savefile
+	var savegame = JSON.parse(localStorage.getItem("save")); 	   // Other Savefile
+	
+	// Attribute variables
 	if (typeof savegame.cookies !== "undefined") cookies = savegame.cookies; 
+	if (typeof savegame.cookies !== "undefined") tcookies = savegame.tcookies; 
+	if (typeof savegame.cps !== "undefined") cps = savegame.cps; 
 	if (typeof savegame.children !== "undefined") children = savegame.children; 
 	if (typeof savegame.childrenCost !== "undefined") childrenCost = savegame.childrenCost; 
 	if (typeof savegame.grandmas !== "undefined") grandmas = savegame.grandmas; 
 	if (typeof savegame.grandmasCost !== "undefined") grandmasCost = savegame.grandmasCost;
 	if (typeof savegame.factories !== "undefined") factories = savegame.factories;
 	if (typeof savegame.factoriesCost !== "undefined") factoriesCost = savegame.factoriesCost;
-	reload();
+	
+	// Highscore elements
+	if (typeof highscore.bestCookies !== "undefined") bestCookies = highscore.bestCookies;
+	if (typeof highscore.bestCps !== "undefined") bestCps = highscore.bestCps;
+	
 };
 
 function updateCosts() {
@@ -84,29 +106,75 @@ function updateCosts() {
 };
 
 function updateResources() {
+	// Cookies & CPS
 	document.getElementById("cookies").innerHTML = formatNumber(cookies);
+	document.getElementById("tcookies").innerHTML = formatNumber(tcookies);
+	cps = (children*childrenCps) + (grandmas*grandmasCps) + (factories*factoriesCps);
+	
+	// Cookie generators
 	document.getElementById("children").innerHTML = formatNumber(children);
 	document.getElementById("grandmas").innerHTML = formatNumber(grandmas);
 	document.getElementById("factories").innerHTML = formatNumber(factories);
 };
 
 function updateRates() {
-	document.getElementById("cps").innerHTML = cps;
+	document.getElementById("cps").innerHTML = formatNumber(cps);
+};
+
+function updateHighscore() {
+	document.getElementById("bestCps").innerHTML = formatNumber(bestCps);
+	document.getElementById("bestCookies").innerHTML = formatNumber(bestCookies);
 };
 
 function reset() {
-	localStorage.removeItem("save");
+	if (confirm("Are you sure you want to reset? All your progress and savefile will be lost!")) {
+		localStorage.removeItem("save");
+		allZero();
+		reload();
+	}
+	else {
+		reload();
+	}
+};
+
+function allZero() {
+	cookies = 0;
+	tcookies = 0;
+	children = 0;
+	grandmas = 0;
+	factories = 0;
+	cps = 0;
 	reload();
+};
+
+function saveHighscore() {
+	if (tcookies > bestCookies) {
+		bestCookies = tcookies;
+	}
+	
+	if (cps > bestCps) {
+		bestCps = cps;
+	}
+	
+	updateHighscore();
+	
+	var highscoreSave = {
+		bestCookies: bestCookies,
+		bestCps: bestCps,
+	};
+	
+	localStorage.setItem("highscore",JSON.stringify(highscoreSave)); 
 };
 
 function formatNumber (num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
-}
+};
 
 function reload() {
 	updateCosts();
 	updateResources();
 	updateRates();
+	saveHighscore();
 };
 
 window.setInterval(function() {
@@ -114,4 +182,5 @@ window.setInterval(function() {
 	cookieClick(5 * grandmas);
 	cookieClick(10 * factories);
 	save();
+	reload();
 }, 1000);
