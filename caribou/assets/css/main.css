@@ -3092,4 +3092,8 @@
 		.img-circle {
 			border-radius: 50%
 		}
+		
+		.subtitleText {
+			font-size: 2.5em;
+		}
 	}
