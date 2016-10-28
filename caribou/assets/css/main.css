@@ -3089,11 +3089,11 @@
 			
 		/* Added by Milton */
 		
-		.img-circle {
+		span.img-circle {
 			border-radius: 50%
 		}
 		
-		.subtitleText {
+		div.subtitleText {
 			font-size: 2.5em;
 		}
 	}
