@@ -2600,13 +2600,13 @@
 /* One */
 
 	#products:before {
-		background-image: url("../../images/banner_caribou_resized.png");
+		background-image: url("../../images/banner_caribou3.jpg");
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: cover;
 		content: '';
 		display: block;
-		height: 15em;
+		height: 18em;
 		width: 100%;
 	}
 
