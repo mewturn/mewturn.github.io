@@ -2600,7 +2600,7 @@
 /* One */
 
 	#products:before {
-		background-image: url("../../images/banner_caribou3.jpg");
+		background-image: url("../../images/banner_caribou_resized.png");
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: cover;
