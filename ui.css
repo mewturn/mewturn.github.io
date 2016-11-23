@@ -14,7 +14,7 @@ table, tr, td{
 	width: 20%;
 	height: 25%;
 	border: 5px solid white;
-	position:absolute;
+	position:relative;
 	left:50%;
 	margin-left: -7.5%;
 	
@@ -42,4 +42,7 @@ table, tr, td{
 	border: 2px solid white;
 
 	
+}
+.div2{
+	position:relative;
 }
