@@ -20,16 +20,16 @@
 <div class="fighters">
 <p>
 	<h2>Opponents</h2>
-	<div class="info" onclick="alert('trainee dummy')" >
-	Trainee dummy
+	<div class="info"  onclick="populate('trainee')" >
+	Trainee 
 	</div>
-	<div class="info" onclick="alert(' basic)">
+	<div class="info" onclick="populate('basic')">
 	Basic
 	</div>	
-	<div class="info" onclick="alert('intermediate')">
+	<div class="info" onclick="populate('intermediate')">
 	Intermediate
 	</div>
-	<div class="info" onclick="alert('advance')">
+	<div class="info" onclick="populate('advance')">
 	Advance
 	</div>
 	
@@ -50,19 +50,19 @@
 				</tr>
 				<tr>
 					<td>Strength </td>
-					<td>5 </td>
+					<td id="strength"> </td>
 				</tr>
 				<tr>
 					<td>Dexterity </td>
-					<td>5 </td>
+					<td id="dexterity"> </td>
 				</tr>
 				<tr>
 					<td>Constitution </td>
-					<td>5 </td>
+					<td id = "constitution"> </td>
 				</tr>
 				<tr>
 					<td>Intelligence </td>
-					<td>5 </td>
+					<td id="intelligence"> </td>
 				</tr>
 
 			</table>
@@ -76,19 +76,19 @@
 				</tr>
 				<tr>
 					<td>Strength </td>
-					<td>5 </td>
+					<td id="strength_self">5 </td>
 				</tr>
 				<tr>
 					<td>Dexterity </td>
-					<td>5 </td>
+					<td id="dexterity_self">5 </td>
 				</tr>
 				<tr>
 					<td>Constitution </td>
-					<td>5 </td>
+					<td id="constitution_self">5 </td>
 				</tr>
 				<tr>
 					<td>Intelligence </td>
-					<td>5 </td>
+					<td id="intelligence_self">5 </td>
 				</tr>
 
 			</table>
@@ -110,52 +110,34 @@
 	<table class="statistics">
 		<tr>
 			<td>Points</td>
-			<td>50</td>
+			<td id="points">50</td>
 		</tr>
 		<tr>
 			<td>Level</td>
-			<td>3</td>
+			<td id="level">3</td>
 		</tr>
 		<tr>
 			<td>Wins</td>
-			<td>50</td>
+			<td id="wins">50</td>
 		</tr>
 		<tr>
 			<td>Loss</td>
-			<td>10</td>
+			<td id="loss">10</td>
 		</tr>
 	</table>
 	
 	<p><p>
 	
 	Strength 
-	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="alert('added')">
+	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="add('strength')">
 	Dexterity
-	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="alert('added')">
+	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="add('dexterity')">
 	Constitution
-	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="alert('added')">
+	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="add('constitution')">
 	Intelligence
-	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="alert('added')">
-	
-	<!--<table class="statistics">
-		<tr>
-			<td>Strength</td>
-			<td class="add" onclick="alert('added!')">Add</td>
-		</tr>
-		<tr>
-			<td>Dexterity</td>
-			<td class="add" onclick="alert('added!')"> Add</td>
-		</tr>
-		<tr>
-			<td>Constitution</td>
-			<td class="add" onclick="alert('added!')">Add</td>
-		</tr>
-		<tr>
-			<td>Intelligence</td>
-			<td class="add" onclick="alert('added!')">Add</td>
-		</tr>
-
-	</table>-->
+	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="add('intelligence')">
+	<p>
+	<input type="submit" value="save">
 	
 </div>
 
