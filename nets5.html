@@ -6,69 +6,163 @@
 </head>
 
 <body>
-<h1 style= "text-align:center"> Nets5! </h1>
-<div class="fighter">
-<p>
-	<span class ="opponent">
-
-		<table>
-			<tr>
-				<th> Opponent</th>
-				<th> Statistics </th>
-			</tr>
-			<tr>
-				<td>Strength </td>
-				<td>5 </td>
-			</tr>
-			<tr>
-				<td>Dexterity </td>
-				<td>5 </td>
-			</tr>
-			<tr>
-				<td>Constitution </td>
-				<td>5 </td>
-			</tr>
-			<tr>
-				<td>Intelligence </td>
-				<td>5 </td>
-			</tr>
-
-		</table>
-	</span>
+<div class="header">
+	<span class="name"><h1 > Nets5 </h1></span>
+	<span class="login"><form>
+	Username <br>
+	<input type="text" id="username"><br>
+	Password<br>
+	<input type="text" id="password"><br>
+	<input type="submit" value ="login">
 	
-	<span class ="self">
-		<table>
-			<tr>
-				<th> Self</th>
-				<th> Statistics </th>
-			</tr>
-			<tr>
-				<td>Strength </td>
-				<td>5 </td>
-			</tr>
-			<tr>
-				<td>Dexterity </td>
-				<td>5 </td>
-			</tr>
-			<tr>
-				<td>Constitution </td>
-				<td>5 </td>
-			</tr>
-			<tr>
-				<td>Intelligence </td>
-				<td>5 </td>
-			</tr>
+	</form></span>
+</div>
+<div class="fighters">
+<p>
+	<h2>Opponents</h2>
+	<div class="info" onclick="alert('trainee dummy')" >
+	Trainee dummy
+	</div>
+	<div class="info" onclick="alert(' basic)">
+	Basic
+	</div>	
+	<div class="info" onclick="alert('intermediate')">
+	Intermediate
+	</div>
+	<div class="info" onclick="alert('advance')">
+	Advance
+	</div>
+	
+	
+</div>
 
-		</table>
-	</span>
+
+<div class="main">
+
+	<div class="round">
 	<p>
-	<input type="submit" value= "Start Fight" onclick= "createDiv()">
+		<span class ="opponent">
+
+			<table >
+				<tr>
+					<th> Opponent</th>
+					<th> Statistics </th>
+				</tr>
+				<tr>
+					<td>Strength </td>
+					<td>5 </td>
+				</tr>
+				<tr>
+					<td>Dexterity </td>
+					<td>5 </td>
+				</tr>
+				<tr>
+					<td>Constitution </td>
+					<td>5 </td>
+				</tr>
+				<tr>
+					<td>Intelligence </td>
+					<td>5 </td>
+				</tr>
+
+			</table>
+		</span>
+		
+		<span class ="self">
+			<table>
+				<tr>
+					<th> Self</th>
+					<th> Statistics </th>
+				</tr>
+				<tr>
+					<td>Strength </td>
+					<td>5 </td>
+				</tr>
+				<tr>
+					<td>Dexterity </td>
+					<td>5 </td>
+				</tr>
+				<tr>
+					<td>Constitution </td>
+					<td>5 </td>
+				</tr>
+				<tr>
+					<td>Intelligence </td>
+					<td>5 </td>
+				</tr>
+
+			</table>
+		</span>
+		
+		<span class="start">
+			<input type="submit" value= "Start Fight" onclick= "createDiv()">
+		</span>
+	</div>
+	<p><p><p>
+	<div class="history">
+		Leadership board<p>
+	</div>
 	
 </div>
+<div class="details">
+<h1 >Welcome user!</h1>
 <p>
-<div class="div2">
+	<table class="statistics">
+		<tr>
+			<td>Points</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>Level</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>Wins</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>Loss</td>
+			<td>10</td>
+		</tr>
+	</table>
+	
+	<p><p>
+	
+	Strength 
+	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="alert('added')">
+	Dexterity
+	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="alert('added')">
+	Constitution
+	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="alert('added')">
+	Intelligence
+	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="alert('added')">
+	
+	<!--<table class="statistics">
+		<tr>
+			<td>Strength</td>
+			<td class="add" onclick="alert('added!')">Add</td>
+		</tr>
+		<tr>
+			<td>Dexterity</td>
+			<td class="add" onclick="alert('added!')"> Add</td>
+		</tr>
+		<tr>
+			<td>Constitution</td>
+			<td class="add" onclick="alert('added!')">Add</td>
+		</tr>
+		<tr>
+			<td>Intelligence</td>
+			<td class="add" onclick="alert('added!')">Add</td>
+		</tr>
 
+	</table>-->
+	
 </div>
+
+<p>
+
+
+
 
 
 

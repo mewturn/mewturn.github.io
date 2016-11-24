@@ -5,28 +5,19 @@ div.className='fight';
 
 function createDiv(){
 	
-	var ok = true;
-
-	
-	while(ok==true){
 		
-		if (flag==true){
-			div.innerHTML = content[0];
-			document.getElementsByTagName('body')[0].appendChild(div);
-			flag= false;	
+	if (flag==true){
+		div.innerHTML = content[0];
+		document.getElementsByTagName('body')[0].appendChild(div);
+		flag= false;	
 
-		}else{
-			div.innerHTML = content[1];
-			document.getElementsByTagName('body')[0].appendChild(div);
-			flag=true;
-		}
-			
-		ok=false;
+	}else{
+		div.innerHTML = content[1];
+		document.getElementsByTagName('body')[0].appendChild(div);
+		flag=true;
 	}
-	
-	
+	setTimeout(createDiv, 1000);
 
 
 }
 
-setInterval('createDiv()', 1000);
