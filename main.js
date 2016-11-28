@@ -35,7 +35,7 @@ function move() {
 		}
 		
 		// Choose a new monster
-		var currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
+		currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
 	}
 	reload();
 }
