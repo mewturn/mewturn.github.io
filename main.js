@@ -8,14 +8,16 @@ var damageGain = 1.1;
 // Creature attributes
 var health = 100;
 var currentHealth = health;
-var healthGain = 1.2;
+var healthGain = 1.07;
 var monsters = ['Salmon', 'Trout', 'Shark', 'Stingray']
 var currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
 var monsterLevel = Math.floor(Math.random() * level + 1)
 
 // Global attributes
-var expGain = 25;
-var levelUp = level * 100;
+var expBonus = 100;
+var expGain = Math.floor(monsterLevel * expBonus);
+var levelGrowth = 1.01
+var levelUp = Math.floor(Math.pow((level * levelGrowth),2) * 100);
 
 // "Attack" 
 function move() {
@@ -116,6 +118,8 @@ function allZero() {
 function reload() {	
 	// Player attributes
 	document.getElementById("myExp").innerHTML = exp;					// Current EXP
+	levelUp = Math.floor(Math.pow((level * levelGrowth),2) * 100);		// Calculating EXP for next Level
+	document.getElementById("expTNL").innerHTML = levelUp;				// EXP for Next Level
 	document.getElementById("myDamage").innerHTML = damage;				// Current Damage
 	document.getElementById("myLevel").innerHTML = level;				// Current Level
 	
@@ -124,6 +128,7 @@ function reload() {
 	document.getElementById("label").innerHTML = currentHealth;			// Current Health
 	document.getElementById("monster").innerHTML = currentMonster;		// Current Monster Name
 	document.getElementById("monsterLevel").innerHTML = monsterLevel	// Current Monster Level
+	
 };
 
 window.setInterval(function() {
