@@ -22,9 +22,6 @@ function move() {
 			level++;
 		}
 	}
-	
-	reload();
-	save();
 }
 
 // Save game
