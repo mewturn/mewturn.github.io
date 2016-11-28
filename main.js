@@ -11,6 +11,7 @@ var currentHealth = health;
 var healthGain = 1.2;
 var monsters = ['Salmon', 'Trout', 'Shark', 'Stingray']
 var currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
+var monsterLevel = Math.floor(Math.random() * level + 1)
 
 // Global attributes
 var expGain = 25;
@@ -35,10 +36,22 @@ function move() {
 		}
 		
 		// Choose a new monster
-		currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
+		createNewMonster();
 	}
 	reload();
 }
+
+// "Create a new monster"
+function createNewMonster() {
+	currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
+	monsterLevel = Math.floor(Math.random() * level + 1);
+	
+	reload();
+};
+
+
+
+
 
 // Save game
 function save() {
@@ -49,6 +62,7 @@ function save() {
 		level: level,
 		damage: damage,
 		currentMonster: currentMonster,
+		monsterLevel: monsterLevel,
 	};
 	localStorage.setItem("save",JSON.stringify(save)); 
 };
@@ -56,6 +70,7 @@ function save() {
 // Load game
 function load() {
 	updateSavefile();
+	
 	reload();
 };
 
@@ -70,6 +85,7 @@ function updateSavefile() {
 	if (typeof savegame.level !== "undefined") level = savegame.level; 
 	if (typeof savegame.damage !== "undefined") damage = savegame.damage; 
 	if (typeof savegame.currentMonster !== "undefined") currentMonster = savegame.currentMonster;
+	if (typeof savegame.monsterLevel !== "undefined") monsterLevel = savegame.monsterLevel;
 };
 
 // Resets the game save file
@@ -77,9 +93,11 @@ function reset() {
 	if (confirm("Are you sure you want to reset? All your progress and savefile will be lost!")) {
 		localStorage.removeItem("save");
 		allZero();
+		
 		reload();
 	}
 	else {
+		
 		reload();
 	}
 };
@@ -91,16 +109,21 @@ function allZero() {
 	exp = 0;
 	level = 1;
 	damage = 15;
+	
 	reload();
 };
 
-function reload() {
-	elem.style.width = (currentHealth/health) * 100 + '%';
-	document.getElementById("label").innerHTML = currentHealth;
-	document.getElementById("myExp").innerHTML = exp;
-	document.getElementById("myDamage").innerHTML = damage;
-	document.getElementById("myLevel").innerHTML = level;
-	document.getElementById("monster").innerHTML = currentMonster;
+function reload() {	
+	// Player attributes
+	document.getElementById("myExp").innerHTML = exp;					// Current EXP
+	document.getElementById("myDamage").innerHTML = damage;				// Current Damage
+	document.getElementById("myLevel").innerHTML = level;				// Current Level
+	
+	// Monster attributes
+	elem.style.width = (currentHealth/health) * 100 + '%';				// Current Health Bar
+	document.getElementById("label").innerHTML = currentHealth;			// Current Health
+	document.getElementById("monster").innerHTML = currentMonster;		// Current Monster Name
+	document.getElementById("monsterLevel").innerHTML = monsterLevel	// Current Monster Level
 };
 
 window.setInterval(function() {
