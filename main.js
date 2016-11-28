@@ -22,6 +22,7 @@ function move() {
 			level++;
 		}
 	}
+	reload();
 }
 
 // Save game
@@ -84,5 +85,4 @@ function reload() {
 
 window.setInterval(function() {
 	save();
-	reload();
 }, 1000);
