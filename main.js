@@ -25,6 +25,7 @@ var itemDamageMult = [100, 10, 5, 2];
 var itemLevel = monsterLevel; 
 var itemBonus = [];
 var damageGain = 0;
+var chance;
 
 // Global attributes
 var expBonus = 100;
@@ -82,8 +83,9 @@ function itemDrop() {
 	for (i = 0; i < description.length; i++) {
 		if (roll >= rarity[i]) {
 			// Generate the item and the damage it gives when "equipped"
+			
 			item = drops[Math.floor(Math.random() * drops.length)];
-			itemDamage = itemLevel * itemDamageMult[Math.floor(Math.random() * itemDamageMult.length)];
+			itemDamage = itemLevel * itemDamageMult[i];
 			
 			// Save the item and its states in the lists
 			reward.push(description[i] + " " + item);
