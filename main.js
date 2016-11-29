@@ -140,13 +140,19 @@ function lootDrop() {
 // Save game
 function save() {
 	var save = {
-		health: health,
-		currentHealth: currentHealth,
+		// Player attributes
 		exp: exp,
 		level: level,
-		damage: damage,
+		baseDamage: baseDamage,
+		totalDamageGain: totalDamageGain,
+		
+		// Monster attributes
+		health: health,
+		currentHealth: currentHealth,
 		currentMonster: currentMonster,
 		monsterLevel: monsterLevel,
+		
+		// Global attributes
 		inventory: inventory,
 		
 	};
