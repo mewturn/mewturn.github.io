@@ -31,12 +31,13 @@ var chance;
 var expBonus = 100;
 var expGain = Math.floor(monsterLevel * expBonus);
 var levelGrowth = 1.01
-var levelUp = Math.floor(Math.pow((level * levelGrowth), 2) * 100);
+var levelUp = Math.floor(Math.pow((level * levelGrowth), 2) * 50);
 var lootButton = document.getElementById("lootButton");
-var display = "";
-var inventory = "";
-var reward = []; 
-var status = "";		// Status message
+var display = "";			// Displaying the drops
+var inventory = {};			// Dictionary for the inventory
+var inventoryOutput = ""	// String for the inventory output
+var reward = []; 			// Temporary list for rewards 
+var status = "";			// Status message
 
 // "Attack" 
 function move() {
@@ -85,7 +86,7 @@ function itemDrop() {
 			// Generate the item and the damage it gives when "equipped"
 			
 			item = drops[Math.floor(Math.random() * drops.length)];
-			itemDamage = itemLevel * itemDamageMult[i];
+			itemDamage = (itemLevel * Math.random()) * itemDamageMult[i];
 			
 			// Save the item and its states in the lists
 			reward.push(description[i] + " " + item);
@@ -120,13 +121,23 @@ function lootDrop() {
 	display = "";			// Resets the display
 	
 	for (i = 0; i < reward.length; i++) {
-		inventory += reward[i] + "<br>";		// Add rewards to the inventory tab
+		temp = reward[i].split(" ");
+		
+		// Add rewards to the inventory tab
+		if (!inventory[temp[1]]) {
+			inventory[temp[1]] = 1;
+		}
+		else {
+			inventory[temp[1]]++;
+		}
+		generateInventoryOutput();				// Generates the output to show inventory quantities		
 		damageGain += itemBonus[i];				// Add item damage bonus to the character
 		
 		// Removes the item from the memory lists
 		reward.splice(i, 1);
 		itemBonus.splice(i, 1);
 	}
+	
 	status = damageGain + " damage gained!";	// Prints status message
 	totalDamageGain += damageGain;				// Updates the total damage gain
 	damageGain = 0;								// Resets the iterated damage gain to 0
@@ -138,6 +149,15 @@ function lootDrop() {
 // Equip item
 
 
+// Generate Inventory Output
+function generateInventoryOutput() {
+	inventoryOutput = ""												// Resets the inventory output
+	
+	for (key in inventory) {											// Output the Inventory
+		value = key + " " + inventory[key] + "<br>";
+		inventoryOutput += value;
+	}
+};
 
 // Save game
 function save() {
@@ -217,7 +237,7 @@ function allZero() {
 	createNewMonster();
 	
 	// Clear inventory
-	inventory = "";
+	inventory = {};
 	
 	reload();
 };
@@ -239,7 +259,9 @@ function reload() {
 	
 	// Item attributes
 	document.getElementById("itemDrop").innerHTML = display;			// Item Drop Rewards
-	document.getElementById("inventory").innerHTML = inventory;			// Inventory
+	generateInventoryOutput();
+	document.getElementById("inventory").innerHTML = inventoryOutput;	// Inventory Output
+	
 	
 	// Global attributes
 	document.getElementById("status").innerHTML = status; 				// Status message display
