@@ -6,149 +6,72 @@
 </head>
 
 <body>
-<div class="header">
-	<span class="name"><h1 > Nets5 </h1></span>
-	<span class="login"><form>
-	Username <br>
-	<input type="text" id="username"><br>
-	Password<br>
-	<input type="text" id="password"><br>
-	<input type="submit" value ="login">
-	
-	</form></span>
-</div>
-<div class="fighters">
+<h1 style= "text-align:center"> Nets5! </h1>
+<div class="fighter">
 <p>
-	<h2>Opponents</h2>
-	<div class="info"  onclick="populate('trainee')" >
-	Trainee 
-	</div>
-	<div class="info" onclick="populate('basic')">
-	Basic
-	</div>	
-	<div class="info" onclick="populate('intermediate')">
-	Intermediate
-	</div>
-	<div class="info" onclick="populate('advance')">
-	Advance
-	</div>
+	<span class ="opponent">
+
+		<table>
+			<tr>
+				<th> Opponent</th>
+				<th> Statistics </th>
+			</tr>
+			<tr>
+				<td>Strength </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Dexterity </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Constitution </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Intelligence </td>
+				<td>5 </td>
+			</tr>
+
+		</table>
+	</span>
 	
-	
-</div>
+	<span class ="self">
+		<table>
+			<tr>
+				<th> Self</th>
+				<th> Statistics </th>
+			</tr>
+			<tr>
+				<td>Strength </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Dexterity </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Constitution </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Intelligence </td>
+				<td>5 </td>
+			</tr>
 
-
-<div class="main">
-
-	<div class="round">
+		</table>
+	</span>
 	<p>
-		<span class ="opponent">
-
-			<table >
-				<tr>
-					<th> Opponent</th>
-					<th> Statistics </th>
-				</tr>
-				<tr>
-					<td>Strength </td>
-					<td id="strength"> </td>
-				</tr>
-				<tr>
-					<td>Dexterity </td>
-					<td id="dexterity"> </td>
-				</tr>
-				<tr>
-					<td>Constitution </td>
-					<td id = "constitution"> </td>
-				</tr>
-				<tr>
-					<td>Intelligence </td>
-					<td id="intelligence"> </td>
-				</tr>
-
-			</table>
-		</span>
-		
-		<span class ="self">
-			<table>
-				<tr>
-					<th> Self</th>
-					<th> Statistics </th>
-				</tr>
-				<tr>
-					<td>Strength </td>
-					<td id="strength_self">5 </td>
-				</tr>
-				<tr>
-					<td>Dexterity </td>
-					<td id="dexterity_self">5 </td>
-				</tr>
-				<tr>
-					<td>Constitution </td>
-					<td id="constitution_self">5 </td>
-				</tr>
-				<tr>
-					<td>Intelligence </td>
-					<td id="intelligence_self">5 </td>
-				</tr>
-
-			</table>
-		</span>
-		
-		<span class="start">
-			<input type="submit" value= "Start Fight" onclick= "createDiv()">
-		</span>
-	</div>
-	<p><p><p>
-	<div class="history">
-		Leadership board<p>
-	</div>
-	
-</div>
-<div class="details">
-<h1 >Welcome user!</h1>
-<p>
-	<table class="statistics">
-		<tr>
-			<td>Points</td>
-			<td id="points">50</td>
-		</tr>
-		<tr>
-			<td>Level</td>
-			<td id="level">3</td>
-		</tr>
-		<tr>
-			<td>Wins</td>
-			<td id="wins">50</td>
-		</tr>
-		<tr>
-			<td>Loss</td>
-			<td id="loss">10</td>
-		</tr>
-	</table>
-	
-	<p><p>
-	
-	Strength 
-	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="add('strength')">
-	Dexterity
-	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="add('dexterity')">
-	Constitution
-	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="add('constitution')">
-	Intelligence
-	<img src="add.png" style="width: 10px;height:10px; cursor: pointer; padding-right:10px;" onclick="add('intelligence')">
-	<p>
-	<input type="submit" value="save">
+	<input type="submit" value= "Start Fight" onclick= "createDiv()">
 	
 </div>
 
-<p>
+<div class="div2">
+</div>
 
 
-
-
-
+<script type="text/javascript" src="main1.js"></script>
 
 </body>
-<script type="text/javascript" src="main1.js"></script>
 
 </html>
