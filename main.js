@@ -37,7 +37,9 @@ var display = "";			// Displaying the drops
 var inventory = {};			// Dictionary for the inventory
 var inventoryOutput = ""	// String for the inventory output
 var reward = []; 			// Temporary list for rewards 
+var damageBonus = {};		// Damage record per item
 var status = "";			// Status message
+
 
 // "Attack" 
 function move() {
@@ -86,7 +88,7 @@ function itemDrop() {
 			// Generate the item and the damage it gives when "equipped"
 			
 			item = drops[Math.floor(Math.random() * drops.length)];
-			itemDamage = Math.floor((itemLevel * Math.random()) * itemDamageMult[i]);
+			itemDamage = Math.floor((itemLevel * Math.random() * 2) * itemDamageMult[i]);
 			
 			// Save the item and its states in the lists
 			reward.push(description[i] + " " + item);
@@ -123,14 +125,16 @@ function lootDrop() {
 	for (i = 0; i < reward.length; i++) {
 		temp = reward[i].split(" ");
 		
-		// Add rewards to the inventory tab
+		// Add rewards to the inventory tab and damage tab
 		if (!inventory[temp[1]]) {
 			inventory[temp[1]] = 1;
+			damageBonus[temp[1]] = itemBonus[i];
 		}
 		else {
 			inventory[temp[1]]++;
+			damageBonus[temp[1]] += itemBonus[i];
 		}
-		generateInventoryOutput();				// Generates the output to show inventory quantities		
+		reload();
 		damageGain += itemBonus[i];				// Add item damage bonus to the character
 		
 		// Removes the item from the memory lists
@@ -149,16 +153,6 @@ function lootDrop() {
 // Equip item
 
 
-// Generate Inventory Output
-function generateInventoryOutput() {
-	inventoryOutput = ""												// Resets the inventory output
-	
-	for (key in inventory) {											// Output the Inventory
-		value = key + " " + inventory[key] + "<br>";
-		inventoryOutput += value;
-	}
-};
-
 // Save game
 function save() {
 	var save = {
@@ -176,6 +170,7 @@ function save() {
 		
 		// Global attributes
 		inventory: inventory,
+		damageBonus: damageBonus,
 		
 	};
 	localStorage.setItem("save",JSON.stringify(save)); 
@@ -184,6 +179,14 @@ function save() {
 // Load game
 function load() {
 	updateSavefile();
+	
+	// Preparing the inventory dictionaries to prevent the "undefined" field
+	for (i=0; i<drops.length; i++) {
+		if (!inventory[drops[i]]) {
+			inventory[drops[i]] = 0;
+			damageBonus[drops[i]] = 0;
+		}
+	}
 	
 	reload();
 };
@@ -207,7 +210,7 @@ function updateSavefile() {
 	// Global attributes
 	if (typeof savegame.reward !== "undefined") reward = savegame.reward;
 	if (typeof savegame.inventory !== "undefined") inventory = savegame.inventory;
-	if (typeof savegame.itemBonus !== "undefined") itemBonus = savegame.itemBonus;
+	if (typeof savegame.damageBonus !== "undefined") damageBonus = savegame.damageBonus;
 };
 
 // Resets the game save file
@@ -215,6 +218,7 @@ function reset() {
 	if (confirm("Are you sure you want to reset? All your progress and savefile will be lost!")) {
 		localStorage.removeItem("save");
 		allZero();
+		resetInventory();
 		
 		reload();
 	}
@@ -224,6 +228,13 @@ function reset() {
 	}
 };
 
+// Resets the inventory attributes
+function resetInventory() {
+	for (i=0; i<drops.length; i++) {
+		inventory[drops[i]] = 0;
+		damageBonus[drops[i]] = 0;
+	}
+};
 
 function allZero() {
 	// Sets all attributes to default values
@@ -231,13 +242,20 @@ function allZero() {
 	currentHealth = health;
 	exp = 0;
 	level = 1;
-	damage = 15;
+	baseDamage = 15;
+	totalDamageGain = 0;
 	
 	// Creates a new monster
 	createNewMonster();
 	
-	// Clear inventory
+	// Clears the current loot which are not yet picked up
+	display = "";
+	removeButton();
+	reward = [];
+	
+	// Clear inventory and damage bonus
 	inventory = {};
+	damageBonus = {};
 	
 	reload();
 };
@@ -259,9 +277,32 @@ function reload() {
 	
 	// Item attributes
 	document.getElementById("itemDrop").innerHTML = display;			// Item Drop Rewards
-	generateInventoryOutput();
-	document.getElementById("inventory").innerHTML = inventoryOutput;	// Inventory Output
 	
+	
+	// Inventory attributes
+	// Item classes
+	document.getElementById("weapon1").innerHTML = drops[0];
+	document.getElementById("weapon2").innerHTML = drops[1];
+	document.getElementById("weapon3").innerHTML = drops[2];
+	document.getElementById("weapon4").innerHTML = drops[3];
+	document.getElementById("weapon5").innerHTML = drops[4];
+	document.getElementById("weapon6").innerHTML = drops[5];
+	
+	// Item Quantity
+	document.getElementById("quantity1").innerHTML = inventory[drops[0]];
+	document.getElementById("quantity2").innerHTML = inventory[drops[1]];
+	document.getElementById("quantity3").innerHTML = inventory[drops[2]];
+	document.getElementById("quantity4").innerHTML = inventory[drops[3]];
+	document.getElementById("quantity5").innerHTML = inventory[drops[4]];
+	document.getElementById("quantity6").innerHTML = inventory[drops[5]];
+	
+	// Item Damage Bonus
+	document.getElementById("damage1").innerHTML = damageBonus[drops[0]];
+	document.getElementById("damage2").innerHTML = damageBonus[drops[1]];
+	document.getElementById("damage3").innerHTML = damageBonus[drops[2]];
+	document.getElementById("damage4").innerHTML = damageBonus[drops[3]];
+	document.getElementById("damage5").innerHTML = damageBonus[drops[4]];
+	document.getElementById("damage6").innerHTML = damageBonus[drops[5]];
 	
 	// Global attributes
 	document.getElementById("status").innerHTML = status; 				// Status message display
