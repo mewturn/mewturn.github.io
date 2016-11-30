@@ -40,6 +40,21 @@ var reward = []; 			// Temporary list for rewards
 var damageBonus = {};		// Damage record per item
 var status = "";			// Status message
 
+//change tabs
+function openTab(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+
+};
 
 // "Attack" 
 function move() {
@@ -69,7 +84,7 @@ function move() {
 		itemDrop();
 	}
 	reload();
-}
+};
 
 // "Create a new monster"
 function createNewMonster() {
@@ -308,7 +323,5 @@ function reload() {
 	document.getElementById("status").innerHTML = status; 				// Status message display
 	
 };
-
 window.setInterval(function() {
-	save();
-}, 1000);
+	save();}, 1000);
