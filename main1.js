@@ -17,7 +17,6 @@ document.getElementById('loss').innerHTMl = statistics[3];
 
 function createDiv(){
 	
-		
 	if (flag==true){
 		div.innerHTML = content[0];
 		document.getElementsByTagName('body')[0].appendChild(div);
