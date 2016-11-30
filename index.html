@@ -1,0 +1,102 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="interface.css" />
+
+	<title> Nets5 </title>
+	<h1>Clicker Brawler</h1>
+
+</head>
+<body onload="load()">
+	<div id="myProgress">
+		<div id="myBar">
+			<div id="label"><span id="currenthealth"></span></div>
+		</div>
+	</div>
+
+	<div id="myStat">
+		Status Message: <span id="status"></span>
+		<br><br>
+		My Level: <div id="myLevel"><span id="myLevel"></span></div>
+		
+		<br>
+		My Exp: <span id="myExp"></span>/<span id="expTNL"></span>
+		
+		<br>
+		My Damage: <div id="myDamage"><span id="myDamage"></span></div>
+		
+		<br>
+		<span id="monster"></span> (Level <span id="monsterLevel"> </span>)
+		
+		<br>
+		<span id="itemDrop"></span>
+		
+		<div id="lootButton"><button onclick="lootDrop()">Loot Drops</button></div>
+		<br><br>
+	</div>
+
+	<br>
+	<button onclick="move()">Attack Monster</button>
+	<br>
+	<button onclick="reset()">Reset Progress</button>
+	<br><br><br><br>
+	
+	<u>Inventory</u><br>
+	<table>
+		<tr>
+			<td>Item Class</td>
+			<td>Items Obtained</td>
+			<td>Damage Bonus</td>
+		</tr>
+		<tr>
+			<td><span id="weapon1"></span></td>
+			<td><span id="quantity1"></span></td>
+			<td><span id="damage1"></span></td>
+		</tr>
+		<tr>
+			<td><span id="weapon2"></span></td>
+			<td><span id="quantity2"></span></td>
+			<td><span id="damage2"></span></td>
+		</tr>
+		<tr>
+			<td><span id="weapon3"></span></td>
+			<td><span id="quantity3"></span></td>
+			<td><span id="damage3"></span></td>
+		</tr>
+		<tr>
+			<td><span id="weapon4"></span></td>
+			<td><span id="quantity4"></span></td>
+			<td><span id="damage4"></span></td>
+		</tr>
+		<tr>
+			<td><span id="weapon5"></span></td>
+			<td><span id="quantity5"></span></td>
+			<td><span id="damage5"></span></td>
+		</tr>
+		<tr>
+			<td><span id="weapon6"></span></td>
+			<td><span id="quantity6"></span></td>
+			<td><span id="damage6"></span></td>
+		</tr>
+	</table>
+	
+	<i>
+	<center>Last updated: 30 Nov 2016.</center>
+	</i>
+</body>
+
+
+<script type="text/javascript" src="main.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87754349-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- End of Google Analytics -->
+</html>
