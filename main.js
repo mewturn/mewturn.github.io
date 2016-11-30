@@ -86,7 +86,7 @@ function itemDrop() {
 			// Generate the item and the damage it gives when "equipped"
 			
 			item = drops[Math.floor(Math.random() * drops.length)];
-			itemDamage = (itemLevel * Math.random()) * itemDamageMult[i];
+			itemDamage = Math.floor((itemLevel * Math.random()) * itemDamageMult[i]);
 			
 			// Save the item and its states in the lists
 			reward.push(description[i] + " " + item);
