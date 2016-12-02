@@ -56,6 +56,17 @@ function openTab(evt, cityName) {
 
 };
 
+function show(obj){
+	
+	var tab = document.getElementsByClassName(obj)[0];
+	if (tab.style.visibility == 'hidden'){
+		tab.style.visibility = 'visible';
+	}else{
+		tab.style.visibility = 'hidden';
+	}
+	
+};
+
 // "Attack" 
 function move() {
 	
@@ -197,6 +208,7 @@ function load() {
 	
 	// Preparing the inventory dictionaries to prevent the "undefined" field
 	for (i=0; i<drops.length; i++) {
+
 		if (!inventory[drops[i]]) {
 			inventory[drops[i]] = 0;
 			damageBonus[drops[i]] = 0;
@@ -208,14 +220,19 @@ function load() {
 
 function updateSavefile() {	
 	// Savefiles 
+	if(localStorage !==null){
+		alert('hi');
+	}
+	else{
+		alert('bye');
+	}
 	var savegame = JSON.parse(localStorage.getItem("save")); // Main Savefile
-	
+
 	// Player attributes
 	if (typeof savegame.exp !== "undefined") exp = savegame.exp; 
 	if (typeof savegame.level !== "undefined") level = savegame.level; 
 	if (typeof savegame.baseDamage !== "undefined") baseDamage = savegame.baseDamage;
 	if (typeof savegame.totalDamageGain !== "undefined") totalDamageGain = savegame.totalDamageGain;
-	
 	//  Monster attributes
 	if (typeof savegame.health !== "undefined") health = savegame.health; 
 	if (typeof savegame.currentHealth !== "undefined") currentHealth = savegame.currentHealth; 
@@ -226,6 +243,7 @@ function updateSavefile() {
 	if (typeof savegame.reward !== "undefined") reward = savegame.reward;
 	if (typeof savegame.inventory !== "undefined") inventory = savegame.inventory;
 	if (typeof savegame.damageBonus !== "undefined") damageBonus = savegame.damageBonus;
+
 };
 
 // Resets the game save file
