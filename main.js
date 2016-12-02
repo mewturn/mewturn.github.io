@@ -145,9 +145,6 @@ function removeButton() {
 
 // "Loot item drop"
 function lootDrop() {
-	removeButton();
-	display = "";			// Resets the display
-	
 	for (i = 0; i < reward.length; i++) {
 		temp = reward[i].split(" ");
 		
@@ -171,8 +168,7 @@ function lootDrop() {
 	
 	status = damageGain + " damage gained!";	// Prints status message
 	totalDamageGain += damageGain;				// Updates the total damage gain
-	damageGain = 0;								// Resets the iterated damage gain to 0
-	
+	resetInventory();
 	reload();
 };
 
@@ -221,12 +217,6 @@ function load() {
 
 function updateSavefile() {	
 	// Savefiles 
-	if(localStorage !==null){
-		alert('hi');
-	}
-	else{
-		alert('bye');
-	}
 	var savegame = JSON.parse(localStorage.getItem("save")); // Main Savefile
 
 	// Player attributes
@@ -266,6 +256,9 @@ function reset() {
 function resetInventory() {
 	inventory = {};
 	damageBonus = {};
+	display = "";			// Resets the display
+	removeButton();
+	damageGain = 0;			// Resets the iterated damage gain to 0
 };
 
 function allZero() {
@@ -281,8 +274,7 @@ function allZero() {
 	createNewMonster();
 	
 	// Clear inventory and damage bonus
-	inventory = {};
-	damageBonus = {};
+	resetInventory();
 	
 	reload();
 };
