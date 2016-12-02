@@ -2,11 +2,151 @@
 <head>
 <link rel="stylesheet" type="text/css" href="interface.css" />
 
-	<title> Nets5 </title>
-	<h1>Clicker Brawler</h1>
 
 </head>
-<body onload="load()">
+
+<body >
+<h1 class="header">Nets5</h1>
+
+<div class="line">
+</div>
+<br>
+<ul class="tab">
+  <li><a  class="tablinks" onclick="openTab(event, 'Home')">Home</a></li>
+   <li><a  class="tablinks" onclick="openTab(event, 'Opponents')">Opponents</a></li>
+  <li><a  class="tablinks" onclick="openTab(event, 'Battle');load()" >Battle</a></li>
+  <li><a class="tablinks" onclick="openTab(event, 'Shop')">Shop</a></li>
+
+</ul>
+
+<div id="Home" class="tabcontent">
+  <p>
+  <div class="profile">
+	  <img src="assets/fighter.png"><p>
+	  <h1>Solartubbi</h1>
+	  <table align="center">
+			<tr>
+				<td>Strength </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Dexterity </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Constitution </td>
+				<td>5 </td>
+			</tr>
+			<tr>
+				<td>Intelligence </td>
+				<td>5 </td>
+			</tr>
+
+		</table>
+	</div>
+</div>
+
+<div id="Opponents" class="tabcontent">
+	<div class="levels">
+		<table class="fighters">
+			<tr><td class="individual">Very Easy</td></tr>
+			<tr><td class="individual">Easy</td></tr>
+			<tr><td class="individual">Medium</td></tr>
+			<tr><td class="individual">Challenging</td></tr>
+			<tr><td class="individual">Hard</td></tr>
+			<tr><td class="individual">Very Hard</td></tr>
+			<tr><td class="individual">Professional</td></tr>
+			<tr><td class="individual">Extreme</td></tr>
+
+		</table>
+
+	</div>
+  
+  <div class="separator">
+  </div>
+  
+  <div class="fighter-list">
+  <table>
+	<tr>
+		<td style="padding: 50px; text-align:center;">
+			<img src="assets/octupus.png" style="width:100px; height: 150px;" onclick="show('Octopi')"><p>
+			<a >Octopi</a>
+
+		
+		</td>
+		<td style="padding: 50px; text-align:center;">
+			<img src="assets/spore.png" style="width:100px; height: 150px;"><p>
+			Spori
+
+		
+		
+		
+		</td>
+		<td style="padding: 50px; text-align:center;">
+			<img src="assets/lion.png" style="width:175px;height:150;"><p>
+			Leo
+	
+		
+		
+		</td>
+		<td style="padding: 50px; text-align:center;">
+			<img src="assets/goat.png" style="width:175px;height:150;"><p>
+			Goati
+
+		
+		</td>
+
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="assets/dragon.png" style="width:175px;height:150;"><p>
+			Drakon				
+		</td>
+		<td style="text-align:center;">
+			<img src="assets/wolf.png" style="width:175px;height:150;"><p>
+			Howler				
+		</td>
+		<td style="text-align:center;">
+			<img src="assets/stripe.png" style="width:175px;height:150;"><p>
+			Stripy				
+		</td>
+		<td style="text-align:center;">
+			<img src="assets/monster.png" style="width:175px;height:150;"><p>
+			Shortie				
+		</td>
+	</tr>
+	
+  </table>
+  </div>
+  <div class="Octopi">
+	<img src="assets/octupus.png"><p>
+	  <h1>Octopi</h1>
+	  <table align="center">
+			<tr>
+				<td>Strength </td>
+				<td>2 </td>
+			</tr>
+			<tr>
+				<td>Dexterity </td>
+				<td>3 </td>
+			</tr>
+			<tr>
+				<td>Constitution </td>
+				<td>1 </td>
+			</tr>
+			<tr>
+				<td>Intelligence </td>
+				<td>3 </td>
+			</tr>
+
+	</table>
+	
+  </div>
+</div>
+
+<div id="Battle" class="tabcontent" >
+  <h2>Clicker brawler</h2>
+  
 	<div id="myProgress">
 		<div id="myBar">
 			<div id="label"><span id="currenthealth"></span></div>
@@ -38,52 +178,60 @@
 	<button onclick="move()">Attack Monster</button>
 	<br>
 	<button onclick="reset()">Reset Progress</button>
-	<br><br><br><br>
+	<br><br>
 	
-	<u>Inventory</u><br>
-	<table>
-		<tr>
-			<td>Item Class</td>
-			<td>Items Obtained</td>
-			<td>Damage Bonus</td>
-		</tr>
-		<tr>
-			<td><span id="weapon0"></span></td>
-			<td><span id="quantity0"></span></td>
-			<td><span id="damage0"></span></td>
-		</tr>
-		<tr>
-			<td><span id="weapon1"></span></td>
-			<td><span id="quantity1"></span></td>
-			<td><span id="damage1"></span></td>
-		</tr>
-		<tr>
-			<td><span id="weapon2"></span></td>
-			<td><span id="quantity2"></span></td>
-			<td><span id="damage2"></span></td>
-		</tr>
-		<tr>
-			<td><span id="weapon3"></span></td>
-			<td><span id="quantity3"></span></td>
-			<td><span id="damage3"></span></td>
-		</tr>
-		<tr>
-			<td><span id="weapon4"></span></td>
-			<td><span id="quantity4"></span></td>
-			<td><span id="damage4"></span></td>
-		</tr>
-		<tr>
-			<td><span id="weapon5"></span></td>
-			<td><span id="quantity5"></span></td>
-			<td><span id="damage5"></span></td>
-		</tr>
-	</table>
+	<div class="inventory">
+		<table >
+			<tr>
+				<td>
+					<img src="assets/helm.png" id="weapon1">
+				</td>
+				<td>
+					<img src="assets/armour.png" id="weapon2">
+				</td>
+				<td>
+					<img src="assets/legs.png" id="weapon3">
+				</td>
+				<td>
+					<img src="assets/sword.png" id="weapon4">
+				</td>
+				<td>
+					<img src="assets/axe.png" id="weapon5">
+				</td>
+				<td>
+					<img src="assets/mace.png" id="weapon6">
+				</td>
+				<!--<td >Quantity: <span id="quantity1"></span><br>Damage Bonus: <span id="damage1"></span></td>-->
+			
+			</tr>
+				
+			<tr>
+				<td>Quantity: <span id="quantity1"></span><br>Damage Bonus: <span id="damage1"></span></td>
+				<td>Quantity: <span id="quantity2"></span><br> Damage Bonus: <span id="damage2"></span></td>
+				<td>Quantity: <span id="quantity3"></span><br>Damage Bonus: <span id="damage3"></span></td>
+				<td>Quantity: <span id="quantity4"></span><br>Damage Bonus: <span id="damage4"></span></td>
+				<td>Quantity: <span id="quantity5"></span><br>Damage Bonus: <span id="damage5"></span></td>
+				<td>Quantity: <span id="quantity6"></span><br>Damage Bonus: <span id="damage6"></span></td>
+
+			</tr>
+			
+
+		</table>
+	</div>
+	<p>
 	
 	<i>
 	<center>Last updated: 30 Nov 2016.</center>
 	</i>
-</body>
+	
+</div>
 
+<div id="Shop" class="tabcontent">
+  <h3>Shop</h3>
+</div>
+
+
+</body>
 
 <script type="text/javascript" src="main.js"></script>
 
