@@ -3,13 +3,23 @@
 <script type="text/javascript" src="santa.js"></script>
 
 <head>
-    <title>WritePath Secret Santa</title>
+    <title>WritePath Secret Santa 2019</title>
 </head>
-<body>
-    Enter the secret code which was sent to you via direct message:
-    <input type="text" id="secret_code"></input>
-    <button id="submit_code" onclick="memes()">Go!</button>
+<body onload="load_secret_code_from_params()">
+    <div align="center" style="text-decoration: underline; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:100%;">
+        WritePath Secret Santa 2019
+    </div>
+    <br><br>
 
-    <div id="santa_text"></div>
+    <div style="font-family:Verdana, Geneva, Tahoma, sans-serif;">
+        Enter the secret code which was sent to you via direct message:
+    </div>
+
+    <input type="text" id="secret_code"></input>
+    
+    <button id="submit_code" onclick="check_recipient()">Go!</button>
+    <hr>
+    <br>
+    <div id="santa_text" style="font-family:Verdana, Geneva, Tahoma, sans-serif;"></div>
 </body>
 </html>
